@@ -1,0 +1,27 @@
+# Import necessary libraries
+import pandas as pd
+
+# Read CSV file into a dataframe
+df = pd.read_csv('filename.csv')
+
+# Show The Data
+df
+
+# Prints The Dataset Information
+df.info()
+
+#Check for Missing Values
+df.isnull().sum()
+
+# Replace missing values with a specific value
+df = df.fillna(0)
+
+#Re-Check for Missing Values after Replace Missing Values
+df.isnull().sum()
+
+# Drop a single column
+df = df.drop(columns=['column_name'])
+
+# Convert column to datetime format
+df['column_name'] = pd.to_datetime(df['column_name'])
+
