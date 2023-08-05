@@ -2,7 +2,7 @@
 import pandas as pd
 
 # Read CSV file into a dataframe
-df = pd.read_csv('filename.csv')
+df = pd.read_csv('file_name.csv')
 
 # Show The Data
 df
@@ -19,9 +19,18 @@ df = df.fillna(0)
 #Re-Check for Missing Values after Replace Missing Values
 df.isnull().sum()
 
+# Rename a single column
+df = df.rename(columns={'old_column_name': 'new_column_name'})
+
 # Drop a single column
 df = df.drop(columns=['column_name'])
 
 # Convert column to datetime format
 df['column_name'] = pd.to_datetime(df['column_name'])
+
+# Transform headers to lowercase titlecase
+df.columns = df.columns.str.lower().str.title()
+
+# Save dataframe to Excel file
+df.to_excel('file_name.xlsx', index=False)
 
